@@ -15,7 +15,7 @@ notes = {'01.01.2023' : ["Great all with NY",
          '24.12.2023' : ["Prepare presents",
                          "Buy newyear tree",
                          "Test, test"]}
-# print (notes['01.01.2023'])
+
 choice = '1'
 enter_choise()
 while choice != '0':
