@@ -55,10 +55,10 @@ while choice != '0':
         new_note = input('Enter your note: ')
         priority = input('Enter priority: ')
         if date in notes.keys():
-            notes[date].append({"num" : len(notes[date]), "task" : new_note, "prior" : priority})
+            notes[date].append({"num" : len(notes[date])+1, "task" : new_note, "prior" : priority})
         else:
             notes[date] = list()
-            notes[date].append({"num" : len(notes[date]),"task" : new_note, "prior" : priority})
+            notes[date].append({"num" : len(notes[date])+1,"task" : new_note, "prior" : priority})
 
     elif choice == '5':
         date = input('Enter date for delete: ')
