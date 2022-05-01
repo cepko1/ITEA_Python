@@ -1,5 +1,7 @@
+import json
+
 def enter_choise():
-    """ Show list of choices ant return number of choice"""
+    """ Show list of choices and return number of choice"""
 #    print()
     print('\nFor view dates enter 1')
     print('For view all notes enter 2')
@@ -31,6 +33,29 @@ notes = {'01-01-2023' : [{"num" : 1,
                          "task" : "Test, test",
                          "prior" : "3"}]}
 
+try:
+    json_file = open("daily.json", "r", encoding="UTF-8")
+except:
+    json_file = open("daily.json", "a+", encoding="UTF-8")
+
+
+#print(json_file)
+#with open("daily.json", "r") as read_file:
+ #  json_data = json.load(read_file)
+#json_data = json.load(json_file)
+
+# Try to open file. If file does not exist - it will be created. If file exist - loat its data to json_data
+try:
+    json_data = json.load(json_file)
+    print (len(json_data))
+    print(json_data)
+    notes = json_data
+except:
+    print("file is empty. Test notes will be wrote")
+    json.dump(notes,json_file)
+
+json_file.close()
+json_file = open("daily.json", "w+", encoding="UTF-8")
 
 choice = enter_choise()
 while choice != '0':
@@ -78,4 +103,6 @@ while choice != '0':
     else:
         pass
     choice = enter_choise()
+json.dump(notes, json_file)
+json_file.close()
 print('Good bye!')
