@@ -36,10 +36,10 @@ notes = {'01-01-2023' : [{"num" : 1,
 try:
     json_file = open("daily.json", "r", encoding="UTF-8")
 except:
-    json_file = open("daily.json", "a+", encoding="UTF-8")
+    json_file = open("daily.json", "w", encoding="UTF-8")
 
 
-#print(json_file)
+print(json_file)
 #with open("daily.json", "r") as read_file:
  #  json_data = json.load(read_file)
 #json_data = json.load(json_file)
@@ -47,11 +47,13 @@ except:
 # Try to open file. If file does not exist - it will be created. If file exist - loat its data to json_data
 try:
     json_data = json.load(json_file)
-    print (len(json_data))
+    print(len(json_data))
     print(json_data)
     notes = json_data
 except:
     print("file is empty. Test notes will be wrote")
+    json_file.close()
+    json_file = open("daily.json", "w+", encoding="UTF-8")
     json.dump(notes,json_file)
 
 json_file.close()
