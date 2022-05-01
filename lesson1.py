@@ -54,7 +54,7 @@ except:
     print("file is empty. Test notes will be wrote")
     json_file.close()
     json_file = open("daily.json", "w+", encoding="UTF-8")
-    json.dump(notes,json_file)
+    json.dump(notes,json_file, indent=4)
 
 json_file.close()
 json_file = open("daily.json", "w+", encoding="UTF-8")
@@ -105,6 +105,6 @@ while choice != '0':
     else:
         pass
     choice = enter_choise()
-json.dump(notes, json_file)
+json.dump(notes, json_file, indent=4)
 json_file.close()
 print('Good bye!')
